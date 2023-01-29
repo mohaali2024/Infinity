@@ -6,6 +6,7 @@ public class TestCharController : MonoBehaviour
 {
 
     public float movementSpeed = 10f;
+    public SpawnManager spawnManager;
 
     // Start is called before the first frame update
     void Start()
@@ -21,4 +22,10 @@ public class TestCharController : MonoBehaviour
 
         transform.Translate(new Vector3(hMovement, 0, vMovement) * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        spawnManager.SpawnTriggerEntered();
+    }
+
 }
